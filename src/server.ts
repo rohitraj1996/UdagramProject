@@ -19,7 +19,7 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
 
   // @TODO1 IMPLEMENT A RESTFUL ENDPOINT
   app.get("/filteredimage?:image_url", async( req, res ) => {
-    const { image_url } = req.query;
+    const { image_url } = req.query as any;
 
     if (validUrl.isUri(image_url)) {
       filterImageFromURL(image_url).then(response => {
